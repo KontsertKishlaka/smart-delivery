@@ -1,32 +1,20 @@
-# IDE
+# ide
 .vscode/
 .idea/
 .trae/
-*.swp
-*.swo
-*~
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Python
+# python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
 .venv/
-env/
 venv/
-*.egg-info/
+env/
+
+# build
 dist/
 build/
-*.spec
-pip-log.txt
 last_open_file.txt
 
-# Node.js / Next.js
+# nodejs x nextjs
 node_modules/
 .next/
 out/
@@ -35,35 +23,34 @@ out/
 .env.test.local
 .env.production.local
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Environment & Secrets
+# env x secrets
 .env
 *.env
-!.env.example
 secrets/
-*.key
-*.pem
 
-# Docker
+# docker
 .docker/
 docker-compose.override.yml
 
-# Logs & Temp
-*.log
-*.tmp
+# logs
 logs/
-temp/
+*.log
+pip-log.txt
 
-# Database
+# temp
+temp/
+*.tmp
+
+# db
 *.db
 *.sqlite
 
-# Linter
-.markdownlint.yaml
+# lint
+#.markdownlint.yaml
+#.markdownlint.yml
 
-# Proto generated
+# proto
 *_pb2.py
 *_pb2_grpc.py
  
