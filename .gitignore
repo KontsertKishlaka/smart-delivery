@@ -47,12 +47,7 @@ temp/
 *.sqlite
 
 # lint
-#.markdownlint.yaml
 #.markdownlint.yml
 
-# proto
-*_pb2.py
-*_pb2_grpc.py
-
 # docs
-commit-style.md
+# commit-style.md
