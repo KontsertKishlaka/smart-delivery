@@ -1,38 +1,20 @@
 <div align="center">
     <img src="/docs/res/logo.png" alt="logo.png" width="200" height="200" />
-    <h1>🤙 SmartDelivery 🍕</h1>
+    <h1>SmartDelivery 🍕</h1>
     <p><b><i>Веб-приложение системы управления доставкой еды (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</i></b></p>
     <br>
-    <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
-        <a href="https://vuejs.org/" target="_blank">
-            <img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-        </a>
-        <a href="https://go.dev/" target="_blank">
-            <img src="https://img.shields.io/badge/Go-1.23-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
-        </a>
-        <a href="https://www.postgresql.org/" target="_blank">
-            <img src="https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-            <img src="https://img.shields.io/badge/Vue.js-3.4-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue.js">
-        </a>
-        <a href="https://vitejs.dev/" target="_blank">
-            <img src="https://img.shields.io/badge/Vite-5.1-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
-        </a>
-        <a href="https://www.docker.com/" target="_blank">
-            <img src="https://img.shields.io/badge/Docker-25-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-        </a>
-        <a href="PlantUML" target="_blank">
-            <img src="https://img.shields.io/badge/plantuml-4-FF6384?style=for-the-badge&logo=uml&logoColor=white" alt="PlantUML">
-        </a>
-        <a href="LICENSE" target="_blank">
-            <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License">
-        </a>
-    </div>
+    <p align="center">
+        <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"></a>
+        <a href="https://go.dev/"><img src="https://img.shields.io/badge/Go-1.23-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go"></a>
+        <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"></a>
+        <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue.js-3.4-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white" alt="Vue.js"></a>
+        <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-5.1-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"></a>
+        <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-25-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></a>
+        <a href="https://plantuml.com/"><img src="https://img.shields.io/badge/plantuml-4-FF6384?style=for-the-badge&logo=plantuml&logoColor=white" alt="PlantUML"></a>
+        <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT"></a>
+    </p>
     <br>
 </div>
-
----
 
 ## 📖 Описание
 
@@ -45,8 +27,6 @@ SmartDelivery - микросервисная платформа для авто�
 - **Интеграция с 1С**: автовыгрузка закрытых заказов на учебный стенд 1С;
 - **Статическая карта**: отображение меток ресторана и клиента на OpenStreetMap;
 - **Локализация**: русский и английский языки в панели оператора.
-
----
 
 ## 🛠 Технологический стек
 
@@ -86,8 +66,6 @@ SmartDelivery - микросервисная платформа для авто�
 - **Учебный стенд 1С** (HTTP-сервис) - выгрузка закрытых заказов;
 - **OpenStreetMap (Leaflet.js)** - отображение статических карт.
 
----
-
 ## 🏗 Архитектура
 
 Ознакомьтесь с актуальной диаграммой развертывания:
@@ -105,8 +83,6 @@ MSA с синхронной коммуникацией через REST.
 | `integration-1c`       | Python | Выгрузка данных в учебный стенд 1С    | 8004 | REST         |
 | `telegram-bot`         | Python | Обработка диалога с клиентами         | -    | Telegram API |
 | `frontend`             | Vue    | Веб-панель оператора (SPA)            | 8080 | -            |
-
----
 
 ## 🚀 Быстрый старт
 
@@ -137,8 +113,6 @@ docker-compose ps
 | Панель оператора (Vue)                    | <http://localhost:8080>      |
 | PostgreSQL                                | <http://localhost:5432>      |
 
----
-
 ## 📂 Структура проекта
 
 ```text
@@ -153,8 +127,6 @@ smart-delivery/
 ├── docker-compose.yml
 └── README.md
 ```
-
----
 
 ## 🤝 Команда
 
