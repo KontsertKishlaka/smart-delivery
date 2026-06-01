@@ -1,0 +1,79 @@
+@startuml диаграмма_развертывания
+
+left to right direction
+
+skinparam actorStyle hollow
+skinparam defaultTextAlignment center
+skinparam shadowing false
+skinparam roundcorner 15
+skinparam backgroundcolor #F4F6F9
+skinparam ArrowColor #2B2D42
+skinparam ArrowThickness 2
+skinparam DefaultFontColor #1D1E2C
+skinparam NoteBackgroundColor #FFF3E0
+skinparam NoteFontColor #000000
+skinparam actorBackgroundColor #FF477E
+skinparam actorBorderColor #FF477E
+skinparam cloudBackgroundColor #9E00FF
+skinparam cloudBorderColor #9E00FF
+skinparam cloudFontColor #FFFFFF
+
+' Docker Host
+node "**Docker Host**" #E8ECEF {
+    node "**Фронтенд (Vue SPA)**\n(Vue 3 + Vuetify)" as Frontend #00F5D4
+    node "**API Gateway**\n(Go)" as Gateway #00B4D8
+    node "**Telegram Bot**\n(aiogram)" as Bot #00B4D8
+    node "**Order Service**\n(Go)" as OrderSvc #FFB703
+    node "**Restaurant Service**\n(FastAPI)" as RestaurantSvc #FFB703
+    node "**Notification Service**\n(FastAPI)" as NotifSvc #FF4D6D
+    node "**Integration 1C**\n(FastAPI)" as Int1c #FF4D6D
+
+    ' PostgreSQL
+    database "**PostgreSQL**\n(общая БД)" as PG #FFD166
+    note right of PG : Схемы:\norder_schema\nrestaurant_schema\noperator_schema\nnotification_logs\nexport_logs
+}
+
+' Внешние клиенты
+actor "**Клиент**\n(Telegram)" as Client
+actor "**Оператор**\n(Веб-панель)" as Operator
+
+' Внешние системы
+cloud "**Telegram Bot API**" as TGAPI
+cloud "**1С (учебный стенд)**\n(HTTP-сервис)" as C1Learn
+cloud "**OpenStreetMap (JS)**" as OSM
+
+' Связи
+Operator --> Frontend : HTTPS\n(браузер)
+Client <--> TGAPI : MTProto/HTTPS
+
+' Telegram Bot
+TGAPI <--> Bot : Webhook (HTTPS)
+Bot --> Gateway : REST/HTTPS\n(прокси)
+
+' Фронтенд -> Gateway
+Frontend --> Gateway : REST/HTTPS
+
+' Gateway -> Бизнес-сервисы
+Gateway --> OrderSvc : REST (синхр.)
+Gateway --> RestaurantSvc : REST
+Gateway --> NotifSvc : REST
+Gateway --> Int1c : REST
+
+' Взаимодействия между сервисами
+OrderSvc --> NotifSvc : REST\n(уведомление)
+OrderSvc --> Int1c : REST\n(выгрузка заказов)
+
+' Внешние вызовы
+NotifSvc --> TGAPI : REST/HTTPS
+Int1c --> C1Learn : REST/HTTPS
+
+' Фронтенд обращается к OSM напрямую
+Frontend --> OSM : HTTPS
+
+' Все сервисы обращаются к своим схемам PostgreSQL
+OrderSvc --> PG : SQL
+RestaurantSvc --> PG : SQL
+NotifSvc --> PG : SQL
+Int1c --> PG : SQL
+
+@enduml
